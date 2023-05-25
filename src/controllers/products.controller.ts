@@ -1,0 +1,10 @@
+import { Request, Response } from 'express';
+import productsServices from '../services/products.services';
+
+const createProduct = async (req: Request, res: Response): Promise<void> => {
+  const newProduct = await productsServices.createProduct(req.body);
+  res.status(201).json(newProduct);
+};
+export default {
+  createProduct,
+};
